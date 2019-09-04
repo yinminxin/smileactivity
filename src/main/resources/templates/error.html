@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="js/swiper/css/style.css">
+<style>
+    .in{
+        width: 60%;
+        height: 440px;
+        background-color: bisque;
+        margin: 0 auto;
+        padding-top: 60px;
+    }
+</style>
+<body >
+    <div class="pagelayput">
+        <div class="include-module" data-include="partial/header.html"></div>
+
+        <div class="info-banner">
+            <div class="info-b-inner clearfix" style="text-align: center;padding-top: 40px;padding-bottom: 40px;">
+                <div class="in" >
+                    <div style="margin-bottom: 50px;"><img src="/img/404.png"></div>
+                    <div style="font-size: x-large;margin-bottom: 10px">页面找不到了</div>
+                    <div style="font-size: initial;"><span style="color: red;font-size: x-large" id="time">5</span>&nbsp;&nbsp;秒后跳转首页</div>
+                </div>
+            </div>
+        </div>
+        <div class="include-module" data-include="partial/footer.html"></div>
+    </div>
+</body>
+<script type="text/javascript" src="js/sea.js"></script>
+<script>
+    seajs.use(["include","swiper"], function() {
+        function time() {
+            setTimeout(function () {
+                var t=$("#time").text();
+                // alert(t);
+                if(t>0){
+                    $("#time").text(t-1);
+                    time();
+                }else{
+                    window.location.href = "https://www.shsmile.com.cn/index";
+                }
+            },1000);
+        }
+        time();
+    })
+</script>
+</html>

@@ -1,0 +1,331 @@
+.info-banner{
+    box-sizing: border-box;
+    padding: 26px 0;
+    height:auto;
+    /*background: #dbe4e1;*/
+}
+.info-b-inner,
+.info-tab-inner,
+.info-detail{
+    margin: auto;
+    width:1180px;
+}
+.msgtip.default{
+    width:110px;
+    height:34px;
+}
+.shareContainer{
+    margin-top: 5px;
+}
+/* banner */
+.info-b-inner{
+    position: relative;
+    box-sizing: border-box;
+    padding: 30px;
+    height: auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 3px rgba(204,204,204,.4);
+}
+.info-tab-inner{
+    background: #fff;
+    border-radius: 8px;
+}
+.info-b-inner .info-b-img {
+    margin-right: 44px;
+}
+.info-b-inner .info-b-img>img{
+    width: 440px;
+    height:260px;
+}
+.info-r{
+    width: 630px;
+}
+.info-b-inner .name{
+    overflow: hidden;
+    width: 630px;
+    line-height: 60px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color:#333;
+    font-size: 24px;
+}
+.info-b-inner .tag{
+    display: inline-block;
+    position: relative;
+    /*margin-top: 18px;*/
+    margin-left: 10px;
+    /*padding: 5px;*/
+    color:#999;
+    /*background: #bababa;*/
+}
+/*.info-b-inner .tag1{*/
+    /*margin-right: 10px;*/
+    /*color:#8ec1de;*/
+    /*cursor: pointer;*/
+/*}*/
+/*.info-b-inner .tag:after{*/
+    /*position: absolute;*/
+    /*left:-10px;*/
+    /*top:6px;*/
+    /*border: 5px solid transparent;*/
+    /*border-right-color:#bababa ;*/
+    /*width:0;*/
+    /*height:0;*/
+    /*content: "";*/
+/*}*/
+.info-b-inner .intro{
+    width: 630px;
+    line-height: 30px;
+    color:#666;
+    font-size: 14px;
+}
+.info-b-inner .intro .icon-time{
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 2px;
+    background: url("../img/activity/time.png") no-repeat;
+}
+.info-b-inner .intro .icon-address{
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 2px;
+    background: url("../img/activity/adress-icon.png") no-repeat;
+}
+.info-b-inner .intro .icon-tell{
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 2px;
+    background: url(../img/activity/tel.png) no-repeat;
+}
+.intro .tips{
+    margin-top:10px;
+}
+.info-intro>ul>li{
+    float: left;
+    border-left:1px solid #ebebeb ;
+    padding: 0 20px;
+    height:60px;
+    text-align: center;
+}
+.info-intro>ul>li:first-child{
+    border-left: none;
+    padding-left: 0;
+    text-align: left;
+}
+
+.info-intro .name{
+    line-height: 30px;
+    text-align: center;
+}
+.info-intro .name>span{
+    margin: 0 10px;
+}
+.info-intro .dynums{
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    color:#666;
+}
+.info-intro>ul>li:first-child .name span{
+    margin: 0;
+}
+.intro .des{
+    font-size: 14px;
+}
+ .ticket{
+    margin: 10px 0;
+}
+.ticket .activetype{
+    line-height: 30px;
+    color: #666;
+    font-size: 14px;
+}
+ .tickettype>ul>li{
+    display: inline-block;
+    vertical-align: middle;
+     margin-right: 10px;
+    width: 158px;
+    height: 68px;
+    padding: 13px 13px;
+    box-sizing: border-box;
+    line-height: 20px;
+    border: 1px solid rgb(204,204,204);
+    box-shadow: 0 0 10px 3px rgba(204,204,204,.4);
+    border-radius: 5px;
+    cursor: pointer;
+    color: #999;
+}
+.tickettype>ul>li .lock{
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 2px;
+    background: url(../img/activity/lock-icon.png) no-repeat;
+}
+ .tickettype>ul>li h3{
+    text-indent: 15px;
+    font-weight: normal;
+}
+.tickettype>ul>li:hover,.tickettype>ul>li.selected{
+    border: 1px solid #26c4ad;
+    box-shadow: 0 0 4px 2px rgba(38,196,173,.4);
+    color: #26c4ad;
+}
+.info-b-inner .btn-container{
+    margin: 20px 0;
+    width: 620px;
+}
+.btn {
+    display: inline-block;
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    border-radius: 100px;
+}
+.btnturquoises {
+    padding: 10px 40px;
+    line-height: 24px;
+    background: #26c4ad;
+}
+.btnexit{
+    padding: 10px 40px;
+    line-height: 24px;
+    background: #ccc;
+}
+.entring{
+    margin-top: 10px;
+}
+.sharing{
+    margin-top: 10px;
+    line-height: 44px;
+    font-size: 14px;
+    color: #999;
+}
+/*活动内容*/
+.commombox h1 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 20px;
+}
+.commombox h1 span{
+    color: #999;
+    font-size: 14px;
+    font-weight: normal;
+}
+.activity-l{
+    width: 790px;
+    height: auto;
+}
+.activity-inner{
+    width: 790px;
+    height: auto;
+    margin-bottom: 30px;
+    padding: 30px 30px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 3px rgba(204,204,204,.4);
+}
+.activity-r{
+    width: 360px;
+    height: 345px;
+}
+.activity-map{
+    width: 360px;
+    height: 345px;
+    padding: 30px 30px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 3px rgba(204,204,204,.4);
+}
+.activity-tag{
+    width: 790px;
+    min-height: 55px;
+    margin-bottom: 30px;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 3px rgba(204,204,204,.4);
+}
+.activity-tag>ul>li{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+    width: auto;
+    padding: 11px 14px;
+    border: 1px dashed #d3d3d3;
+    border-radius: 50px;
+    font-size: 14px;
+    color: #666;
+}
+/*报名表样式*/
+.entryform{
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    font-weight: 200;
+}
+.form-title{
+    margin-bottom: 10px;
+    width: 100%;
+    height: 30px;
+    font-size: 16px;
+    color: #666;
+
+}
+.entryform form{
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.entryform form div{
+    margin: 15px 0;
+}
+.entryform form div span.namenum{
+    font-size: 16px;
+    color: #666;
+}
+.entryform form div i{
+    margin-right: 8px;
+    color: #f00;
+}
+.entryform form div input{
+    width: 223px;
+    height: 38px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    text-indent: 20px;
+    outline-style: none;
+}
+.register-term {
+    margin-top: 26px;
+    font-size: 14px;
+    color: #999;
+}
+.register-term a.term {
+    color: #26c4ad;
+}
+.submitinfo{
+    width: 100%;
+    height: auto;
+}
+.submitinfo>ul>li{
+    font-size: 18px;
+    color: #666;
+    font-weight: 200;
+    line-height: 40px;
+
+}

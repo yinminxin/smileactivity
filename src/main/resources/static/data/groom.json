@@ -1,0 +1,59 @@
+[
+  {
+    "ID": 1,
+    "Image": "/NEWSMILE/img/index/org1.png",
+    "Name": "上海智勇教育培训有限公司",
+    "href": "organization_detail.html",
+    "star": 4,
+    "comments":22,
+    "tags": "循环重复教学法",
+    "address": "徐汇区乐山路33号3幢200、202室",
+    "type":"中小学辅助教育",
+    "appraise":"112",
+    "effect": "9.0",
+    "envirment":"9.0",
+    "teacher":"8.9"
+  }, {
+  "ID": 2,
+  "Image": "/NEWSMILE/img/index/org2.png",
+  "Name": "精锐教育（智立方教育）",
+  "href": "organization_detail.html",
+  "star": 4,
+  "comments":32,
+  "tags": "思维训练",
+  "address": "友谊路199号新宝山大厦4楼4b",
+  "type":"中小学辅助教育",
+  "appraise":"12",
+  "effect": "8.9",
+  "envirment":"9.2",
+  "teacher":"9.0"
+}, {
+  "ID": 3,
+  "Image": "/NEWSMILE/img/index/org3.png",
+  "Name": "小荧星教育培训",
+  "href": "organization_detail.html",
+  "star": 4,
+  "comments":25,
+  "tags": "水粉特长班",
+  "address": "成都北路333号（招商局广场2楼）",
+  "type":"少儿教育",
+  "appraise":"112",
+  "effect": "8.8",
+  "envirment":"9.2",
+  "teacher":"9.0"
+}, {
+  "ID": 4,
+  "Image": "/NEWSMILE/img/index/org4.png",
+  "Name": "上海昂立教育培训",
+  "href": "organization_detail.html",
+  "star": 4,
+  "comments":20,
+  "tags": "升学辅导",
+  "address": "徐汇区宜山路425号光启城办公楼5楼",
+  "type":"英语教育",
+  "appraise":"112",
+  "effect": "9.0",
+  "envirment":"8.9",
+  "teacher":"9.0"
+}
+]

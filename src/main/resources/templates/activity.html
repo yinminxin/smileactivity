@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上海微校</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/activity.css">
+    <link rel="stylesheet" href="js/icheck/css/green.css">
+</head>
+<body>
+<div class="pagelayput">
+    <!--header引入-->
+    <div class="include-module" data-include="partial/header.html"></div>
+    <!--banner部分-->
+    <div class="info-banner">
+        <div class="info-b-inner clearfix">
+            <div class="l info-b-img">
+                <!--<img src="img/activity/small-banner.png">-->
+                <img th:src="${activityInfo.themeImg}">
+            </div>
+            <div class="info-r l">
+                <div class="clearfix">
+                    <div class="l">
+                        <div class="name f24" th:text="${activityInfo.name}" ></div>
+                    </div>
+                </div>
+                <div class="intro" >
+                    <p class="clearfix">
+                        <div class="icon-time di"></div>
+                        <div class="di">时间：<span th:text="${startTime}"></span>&nbsp;~&nbsp;<span th:text="${endTime}"></span></div>
+                        <div class="di r"><span class="tag">限额8000人</span></div>
+                    </p>
+                    <p>
+                        <div class="icon-address di"></div>
+                        <div class="di" th:if="${activityInfo.address} != 1 ">地点：<span class="addressdetail" th:text="${activityInfo.address}"></span></div>
+                        <div class="di" th:if="${activityInfo.address} == 1 ">活动形式：<span class="addressdetail" >线上公益讲座</span></div>
+                    </p>
+                    <p>
+                        <div class="icon-tell di"></div>
+                        <div class="di">电话：<span th:text="${activityInfo.mobile}"></span></div>
+                    </p>
+                </div>
+                <div class="activityinfo btn-container clearfix">
+                    <div class="ticket">
+                    <div class="di">
+                        <span class="di activetype">活动票种：</span>
+                        <div class="tickettype di">
+                            <ul>
+                                <li class="selected">
+                                    <div><span class="lock"></span><span>免费</span></div>
+                                    <h3 class="f16">免费票</h3>
+                                </li>
+                                <li class="">
+                                    <div>￥<span th:text="${activityInfo.cost}"></span></div>
+                                    <h3 class="f16">商务票</h3>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="l entring">
+                        <button class="btn btnturquoises f16" id="joncoursebtn">我要报名</button>
+                    </div>
+                    <!--<div class="r sharing">分享到：<div class="di"><img src="img/activity/wechaticon.png" alt=""></div></div>-->
+                </div>
+                <!--报名表单-->
+                <div class="entryform" style="display: none">
+                    <p class="form-title">请填写报名表单：</p>
+                    <form id="infoForm">
+                        <input hidden id="activityInfoId" name="activityInfoId" th:value="${activityInfo.id}">
+                        <input hidden id="token" name="token" th:value="${token}">
+                        <div class="di">
+                            <span class="namenum di">姓名：</span>
+                            <i class="di">*</i>
+                            <input type="text" id="waitAffirmName" name="name" placeholder="请填写联系人姓名">
+                        </div>
+                        <div class="di">
+                            <span class="namenum di">手机：</span>
+                            <i class="di">*</i>
+                            <input type="text" id="waitAffirmMobile" name="mobile" placeholder="请填写联系人手机">
+                        </div>
+                        <div class="di">
+                            <span class="namenum di">邮箱：</span>
+                            <i class="di">*</i>
+                            <input type="text" id="waitAffirmEmil" name="mail" placeholder="请填写联系人邮箱">
+                        </div>
+                    </form>
+                    <div class="register-term">
+                        <input type="checkbox" id="agreement" name="agreement" checked="checked" >
+                        <span>我已阅读并同意<a class="term" href="#">《上海微校用户注册协议》</a></span>
+                    </div>
+                    <div class="btn-container">
+                        <button class="btn btnturquoises f16" id="submitbtn">提交</button>
+                        <button class="btn btnexit f16" id="exitbtn">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--活动内容-->
+    <div class="cwidth clearfix">
+        <div class="commombox activity-l l">
+            <h1>活动内容</h1>
+            <div class="activity-inner"><img th:src="${activityInfo.activeContentImg}" alt=""></div>
+            <!--<div class="activity-inner"><img src="img/activity/activity-detail_old.png" alt=""></div>-->
+        </div>
+        <div class="commombox activity-r r" >
+            <h1>活动地点</h1>
+            <input hidden id="addressId" th:value="${activityInfo.address}" />
+            <div th:if="${activityInfo.address} == 1" ><img style="width: 300px;height: 285px;" src="img/activity/onLineActivity.png" /></div>
+            <div th:if="${activityInfo.address} != 1" class="activity-map"><div id="allmap" style="width: 300px;height: 285px;"></div></div>
+        </div>
+    </div>
+    <div class="cwidth clearfix">
+        <div class="commombox activity-l l">
+            <h1>活动内容</h1>
+            <div class="activity-tag">
+                <ul>
+                    <li>幼小衔接</li>
+                    <li>幼小教育</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--footer引入-->
+    <div class="include-module" data-include="partial/footer.html"></div>
+</div>
+<!--报名表单确认样式-->
+<div id="submitinfo" style="display: none;">
+    <div class="submitinfo" >
+        <ul>
+            <li>姓名：<span id="affirmName"></span></li>
+            <li>手机：<span id="affirmMobile"></span></li>
+            <li>邮箱：<span id="affirmEmil"></span></li>
+        </ul>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/sea.js"></script>
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=4IU3oIAMpZhfWZsMu7xzqBBAf6vMHcoa"></script>
+<script>
+    var token=$("#token").val();
+    var publicKey="";
+    seajs.use(["include","icheck","layer","rsa"], function() {
+
+        // checkbox的引用
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+            increaseArea: '20%' // optional
+
+        });
+        // 报名表单预览
+        $("#joncoursebtn").on("click",function(){
+            $(".activityinfo").slideUp();
+            $(".entryform").slideDown();
+
+        });
+
+        //报名提交
+        $("#submitbtn").on("click",function(){
+
+            $("#submitbtn").attr("disabled","disabled");
+
+            var flag=true;
+
+            var activityInfoId=$("#activityInfoId").val();
+            var waitAffirmName = $("#waitAffirmName").val();
+            if(!waitAffirmName){
+                layer.msg("请填写您的姓名!");
+                flag=false;
+            }else{
+                var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>《》/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？]");
+                if(pattern.test(waitAffirmName)){
+                    layer.msg("姓名不能包含特殊字符!");
+                    flag=false;
+                }
+            }
+
+            if(flag){
+                var waitAffirmMobile = $("#waitAffirmMobile").val();
+                var phoneReg = /^\d{11}$/;
+                if(!phoneReg.test(waitAffirmMobile)) {
+                    layer.msg("手机号码格式错误!");
+                    flag=false;
+                }
+            }
+
+            if(flag){
+                var waitAffirmEmil = $("#waitAffirmEmil").val();
+                var emailReg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/
+                if(!emailReg.test(waitAffirmEmil)){
+                    layer.msg("邮箱地址格式错误!");
+                    flag=false;
+                }
+            }
+
+            if(flag){
+                if(!$("#agreement").is(':checked')){
+                    layer.msg("请勾选:我已阅读并同意《上海微校用户注册协议》!");
+                    flag=false;
+                }
+            }
+
+            if(!flag){
+                $("#submitbtn").removeAttr("disabled");
+            }
+
+            if(flag){
+                $("#affirmName").html(waitAffirmName);
+                $("#affirmMobile").html(waitAffirmMobile);
+                $("#affirmEmil").html(waitAffirmEmil);
+
+                layer.confirm('报名表单预览', {
+                    title:'报名表单预览',
+                    skin:'layui-layer-rim',
+                    area: ['350px', '300px'],
+                    btn: ['确认提交'], //按钮
+                    content:$("#submitinfo").html(),
+                    cancel: function(index, layero){
+                        $("#submitbtn").removeAttr("disabled");
+                        layer.close(index);
+                    }
+                }, function(){
+                    getPublicKey();
+                    //加密
+                    if(publicKey){
+                        var encrypt = new JSEncrypt();
+                        encrypt.setPublicKey(publicKey);
+                        var waitAffirmNameRsa;
+                        var waitAffirmMobileRsa;
+                        var waitAffirmEmilRsa;
+                        waitAffirmNameRsa = encrypt.encrypt(waitAffirmName.trim());
+                        waitAffirmMobileRsa = encrypt.encrypt(waitAffirmMobile.trim());
+                        waitAffirmEmilRsa = encrypt.encrypt(waitAffirmEmil.trim());
+                        $.ajax({
+                            //几个参数需要注意一下
+                            type: "POST",//方法类型
+                            async:false,
+                            // dataType: "json",//预期服务器返回的数据类型
+                            url: "/activityUserInfo/saveInfo" ,//url
+                            // data: $('#infoForm').serialize(),
+                            data: {
+                                "activityInfoId":activityInfoId,
+                                "token":token,
+                                "name":waitAffirmNameRsa,
+                                "mobile":waitAffirmMobileRsa,
+                                "mail":waitAffirmEmilRsa
+                            },
+                            success: function (result) {
+                                if(result){
+                                    $("#submitbtn").removeAttr("disabled");
+                                    layer.msg(result, {icon: 1});
+                                }else{
+                                    layer.msg('报名成功', {icon: 1});
+                                    setTimeout(function () {
+                                        window.location.href = "https://www.shsmile.com.cn/index";
+                                    },2500);
+                                }
+
+                            },
+                            error : function() {
+                                $("#submitbtn").removeAttr("disabled");
+                                layer.msg('系统繁忙,请刷新页面重试！', {icon: 1});
+                            }
+                        });
+                    }
+                });
+            }
+        });
+        function getPublicKey(){
+            $.ajax({
+                url: "rsa/getPublicKey",
+                data:{"token":token},
+                type: "post",
+                dataType: "text",
+                async:false,
+                success: function(data) {
+                    console.info(data);
+                    if(data){
+                        publicKey = data;
+                    };
+                    if(publicKey=="error"){
+                        publicKey = null;
+                        layer.msg('系统繁忙，请刷新页面重试!', {icon: 1});
+                        $("#submitbtn").removeAttr("disabled");
+                    }else if(publicKey==null){
+                        layer.msg('系统繁忙，请刷新页面重试!', {icon: 1});
+                        $("#submitbtn").removeAttr("disabled");
+                    };
+                },
+                error : function() {
+                    layer.msg('系统繁忙，请刷新页面重试!', {icon: 1});
+                    $("#submitbtn").removeAttr("disabled");
+                }
+            });
+        };
+        //取消提交
+        $("#exitbtn").on("click",function(){
+            $(".activityinfo").slideDown();
+            $(".entryform").slideUp();
+        });
+        // 上海微校用户注册协议
+        $(".term").on("click",function(){
+            layer.open({
+                title:'上海微校用户注册协议',
+                type: 2,
+                skin: 'layui-layer-rim',
+                area: ['1180px', '550px'],
+                content: 'partial/term.html'
+            });
+        });
+        // 百度地图API功能
+        // 创建Map实例
+        if($("#addressId").val()!=1){
+            getMap();
+        }
+        function getMap() {
+            var map = new BMap.Map("allmap");
+            // 初始化地图,设置中心点坐标和地图级别
+            var point = new BMap.Point(121.4803295328,31.2363429624);
+            map.centerAndZoom(point,11);
+            var myGeo = new BMap.Geocoder();
+            // 将地址解析结果显示在地图上,并调整地图视野
+            // var addressdetail = [[${activityInfo.address}]];
+            // alert(addressdetail);
+            var addressdetail = $(".addressdetail").html();
+            // alert(addressdetail);
+            myGeo.getPoint(addressdetail, function(point){
+                if (point) {
+                    map.centerAndZoom(point, 14);
+                    map.addOverlay(new BMap.Marker(point));
+                }else{
+                    alert("您选择地址没有解析到结果!");
+                }
+            });
+            //开启鼠标滚轮缩放
+            map.enableScrollWheelZoom(true);
+        }
+    });
+</script>
+</html>
