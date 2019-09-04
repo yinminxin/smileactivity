@@ -10,8 +10,12 @@ HELP.md
 .settings
 .springBeans
 .sts4-cache
+.md
+mvnw
+mvnw.cmd
 
 ### IntelliJ IDEA ###
+.mvn
 .idea
 *.iws
 *.iml
